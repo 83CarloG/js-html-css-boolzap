@@ -3,7 +3,13 @@
 	margin: 0;
 	padding: 0;
 }
+
 /* Mix */
+html {
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+
+}
 /* icona dei profili */
 .icona-profilo {
 	width: 50px;
@@ -11,7 +17,7 @@
 }
 .icona-profilo__img {
 	width: 100%;
-	border-radius: 50%;
+	border-radius: 100%;
 }
 /* icona dei profili */
 
@@ -75,19 +81,74 @@
 	justify-content: space-between;
 }
 .mio-profilo__icona {
-	font-size: 24px;
+	font-size: 1.5rem;
+	background-color: inherit;
 	color: #b1b1b1;
 }
+.notifiche__silenzia {
+	background-color: inherit;
+	color: #8edafc;
+	font-size: 1.25rem;
+}
 /* /Mio profilo */
-
+/* Notifiche */
 .notifiche {
+	display: flex;
 	width: 100%;
 	height: 70px;
+	padding: 15px;
+	background-color: #8edafc;
+	color: inherit;
 }
+.notifiche__icona {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: auto;
+	background-color: #f2fbff;
+	color: inherit;
+	border-radius: 50%;
+}
+.notifiche__silenzia {
+	font-size: 1.25rem;
+}
+.notifiche__testo {
+	margin-left: 10px;
+}
+.notifiche__sub-titolo {
+	background-color: inherit;
+	color: #52788a;
+	text-decoration: underline;
+}
+/* /Notifiche */
+/* Ricerca */
 .ricerca {
+	display: flex;
+	align-items: center;
 	width: 100%;
 	height: 50px;
+	padding: 20px;
+	background-color: #fff;
+	color: #b7babc
 }
+.ricerca__icona {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: auto;
+	background-color:	inherit;
+	color: #b7babc;
+}
+.ricerca__search {
+	font-size: 1.25rem;
+}
+.ricerca__titolo {
+	font-weight: bold;
+}
+/* /Ricerca */
+
 .amici__item {
 	width: 100%;
 	height: 70px;
