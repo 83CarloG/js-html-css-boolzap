@@ -63,7 +63,7 @@ html {
 .layout-friends {
 	display: flex;
 	flex-direction: column;
-	width: 30%;
+	width: 35%;
 	height: 100%;
 }
 /* Mio profilo */
@@ -95,7 +95,7 @@ html {
 .notifiche {
 	display: flex;
 	width: 100%;
-	height: 70px;
+	height: 80px;
 	padding: 15px;
 	background-color: #8edafc;
 	color: inherit;
@@ -148,16 +148,58 @@ html {
 	font-weight: bold;
 }
 /* /Ricerca */
-
+/* Amici */
 .amici__item {
+	display: flex;
+	align-items: center;
 	width: 100%;
-	height: 70px;
+	height: 80px;
+	padding: 10px 10px 10px 20px;
 }
+.amici__descrizione {
+	width: 70%;
+	margin-left: 15px;
+}
+.amici__nome {
+	font-weight: normal;
+	margin-bottom: 5px;
+}
+.amici__stato {
+	font-size: 0.85rem;
+	background-color: inherit;
+	color: #c8cbcc;
+}
+.amici_ultimo-accesso {
+	align-self: baseline;
+	margin-top: 5px;
+	font-size: 0.75rem;
+	background-color: inherit;
+	color: #ccced0;
+	font-weight: lighter;
+}
+/* /Amici */
 /* /Layout-friends */
 /* Layout-chat */
 .layout-chat {
-	width: 70%;
+	display: flex;
+	flex-direction: column;
+	width: 65%;
 	height: 100%;
+}
+.chat-top {
+	width: 100%;
+	height: 70px;
+	border-left: 1px solid #d9d9d9;
+}
+.main-chat{
+	width: 100%;
+	height: calc(100% - 140px);
+	background-color: red;
+	color: inherit;
+}
+.chat-bottom {
+	width: 100%;
+	height: 70px;
 }
 /* /Layout-chat */
 
