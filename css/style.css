@@ -26,11 +26,11 @@ html {
 /* Layout */
 .layout {
 	position: fixed;
-	width: 100vw;
-	height: 100vh;
   z-index: -1;
   top: 0;
   left: 0;
+	width: 100vw;
+	height: 100vh;
 }
 /* /Layout */
 /* Layout-top */
@@ -53,7 +53,7 @@ html {
 /* Main */
 .main {
 	display: flex;
-	width: 1480px;
+	width: 80%;
 	height: calc(100vh - 60px);
 	margin: 30px auto;
 	background-color: #eaeaea;
@@ -65,6 +65,8 @@ html {
 	flex-direction: column;
 	width: 35%;
 	height: 100%;
+	background-color: #fff;
+	color: inherit;
 }
 /* Mio profilo */
 .mio-profilo {
@@ -74,6 +76,8 @@ html {
 	width: 100%;
 	height: 70px;
 	padding: 10px;
+	background-color: #eaeaea;
+	color: inherit;
 }
 .mio-profilo__lista-icone {
 	width: 100px;
@@ -149,6 +153,12 @@ html {
 }
 /* /Ricerca */
 /* Amici */
+.amici {
+	background-color: #fff;
+	height: 100%;
+	color: inherit;
+	overflow-y: scroll;
+}
 .amici__item {
 	display: flex;
 	align-items: center;
@@ -177,6 +187,10 @@ html {
 	color: #ccced0;
 	font-weight: lighter;
 }
+.active {
+	background-color: #e9ebeb;
+	color: inherit;
+}
 /* /Amici */
 /* /Layout-friends */
 /* Layout-chat */
@@ -194,13 +208,40 @@ html {
 .main-chat{
 	width: 100%;
 	height: calc(100% - 140px);
-	background-color: red;
-	color: inherit;
+	background-image: url(../img/mine.jpg);
+	overflow-y: scroll;
 }
+/* Chat-bottom  */
 .chat-bottom {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #d9d9d9;
+	color: inherit;
 	width: 100%;
 	height: 70px;
+	padding: 10px;
 }
+.input-text {
+	width: 80%;
+	height: 90%;
+	background-color: #fff;
+	color: inherit;
+}
+.input-mex {
+	width: 100%;
+	height: 100%;
+	padding-left: 20px;
+	border: none;
+}
+.chat-bottom, .send {
+	font-size: 25px;
+	font-weight: lighter;
+	background-color: inherit;
+	color: #8d9293;
+}
+/* /Chat-bottom  */
+
 /* /Layout-chat */
 
 /* /Main */
