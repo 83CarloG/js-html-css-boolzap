@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+/* Mix */
+.layout {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-color: #dadbd3;
+	color: inherit;
+}
+.layout-top {
+	width: 100%;
+	height: 160px;
+	background-color: #009688;
+	color: inherit;
+}
+.layout-main {
+	position: absolute;
+	width: 1480px;
+	height: calc(100vh - 40px);
+	background-color: #fff;
+	color: inherit;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
