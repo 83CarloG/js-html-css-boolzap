@@ -9,32 +9,37 @@
 
 /* Layout */
 .layout {
-	position: relative;
+	position: fixed;
 	width: 100vw;
 	height: 100vh;
-	background-color: #dadbd3;
-	color: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
 /* /Layout */
 /* Layout-top */
 .layout-top {
 	width: 100%;
-	height: 140px;
+	height: 15%;
 	background-color: #009688;
 	color: inherit;
 }
 /* /Layout-top */
+/* Layout-bottom */
+.layout-bottom {
+	width: 100%;
+	height: 85%;
+	background-color: #dadbd3;
+	color: inherit;
+}
+/* /Layout-bottom */
+
 /* Layout-main */
-.layout-main {
-	position: absolute;
+.main {
 	display: flex;
 	width: 1480px;
+	margin: 30px auto;
 	height: calc(100vh - 60px);
-	background-color: #fff;
-	color: inherit;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 /* Layout-friends */
 .layout-friends {
