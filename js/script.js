@@ -11,14 +11,36 @@ $(document).ready(function	()	{
 		sendMessage();
 		setTimeout(answer, 1000);
 	});
-	// Mettiamo i contatti in un array, anche aggiungendo nuovi amici non avrò problemi
-	var contatti = [];
-	$('.amici__descrizione').each(
-		function	() {
-			contatti.push($(this).find('.amici__nome').text());
-		}
-	);
-	console.log(contatti);
+	$('.ricerca__input').keyup(function(){
+		// Search text
+		var text = $(this).val().toLowerCase();
+		var containerSerch = $
+		// Hide all content class element
+		$('.amici__item').hide();
+
+		// Search and show
+		$('.amici__item:contains("'+text+'")').show();
+		// Search
+   // $('.amici__nome"').each(function(){
+	 //
+   //  if($(this).text().toLowerCase().indexOf(""+text+"") != -1 ){
+   //   $(this).closest('.amici__item').show();
+   //  }
+  	// 	});
+ 			});
+
+	$('.ricerca__input').keyup(function(){
+
+ // Search text
+ var text = $(this).val();
+
+ // Hide all content class element
+ $('.amici__item').hide();
+
+ // Search and show
+ $('.amici__item:contains("'+text+'")').show();
+
+});
 });
 
 function sendMessage ()	{
