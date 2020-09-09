@@ -11,10 +11,15 @@ $(document).ready(function	()	{
 		sendMessage();
 		setTimeout(answer, 1000);
 	});
-
-
+	// Mettiamo i contatti in un array, anche aggiungendo nuovi amici non avrò problemi
+	var contatti = [];
+	$('.amici__descrizione').each(
+		function	() {
+			contatti.push($(this).find('.amici__nome').text());
+		}
+	);
+	console.log(contatti);
 });
-
 
 function sendMessage ()	{
 	var inputValue = $('.input-mex').val();
