@@ -11,36 +11,25 @@ $(document).ready(function	()	{
 		sendMessage();
 		setTimeout(answer, 1000);
 	});
-	$('.ricerca__input').keyup(function(){
+	$('.ricerca__input').keyup(function	()	{
 		// Search text
 		var text = $(this).val().toLowerCase();
-		var containerSerch = $
 		// Hide all content class element
 		$('.amici__item').hide();
-
 		// Search and show
-		$('.amici__item:contains("'+text+'")').show();
-		// Search
-   // $('.amici__nome"').each(function(){
-	 //
-   //  if($(this).text().toLowerCase().indexOf(""+text+"") != -1 ){
-   //   $(this).closest('.amici__item').show();
-   //  }
-  	// 	});
- 			});
+		$('.amici__item:contains("' + text + '")').show();
+	});
 
-	$('.ricerca__input').keyup(function(){
-
+	$('.ricerca__input').keyup(function	()	{
  // Search text
- var text = $(this).val();
+		var text = $(this).val();
 
  // Hide all content class element
- $('.amici__item').hide();
+		$('.amici__item').hide();
 
  // Search and show
- $('.amici__item:contains("'+text+'")').show();
-
-});
+		$('.amici__item:contains("' + text + '")').show();
+	});
 });
 
 function sendMessage ()	{
