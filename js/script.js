@@ -46,9 +46,14 @@ $(document).ready(function	()	{
 			var avatarAmicoChatTop = $('.avatar .icona-profilo img').attr('src', avatarAmico);
 			// Cambio il nome in cima alla chat
 			var nomeAmico = $('.amici__item--active .amici__descrizione h4').text();
-			console.log(nomeAmico);
 			var nomeAmicoChatTop = $('.avatar .avatar-text h4').text(nomeAmico);
 		});
+	// Faccio apparire il menu a tendina
+	$('.mex-row .mex .mex__options').on('click', (function () {
+		
+	} )
+);
+
 });
 
 function sendMessage ()	{
