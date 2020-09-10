@@ -10,12 +10,6 @@ $(document).ready(function	()	{
 		sendMessage();
 	});
 
-	// $('.ricerca__input').keyup(function	()	{
-	// 	var text = $(this).val().toLowerCase();
-	// 	$('.amici__item').hide();
-	// 	$('.amici__item:contains("' + text + '")').show();
-	// });
-
 	$('.ricerca__input').keyup(function	()	{
 		var serchInput = $(this).val().toLowerCase();
 		var contactsName = $('.amici__nome');
@@ -28,6 +22,24 @@ $(document).ready(function	()	{
 			}
 		});
 	});
+	// Seleziono il div amici__item
+	$('.amici__item').click(
+		function	() {
+			// Seleziono l'attributo data-contatto
+			var amicoSelezionato = $(this).attr('data-contatto');
+			var chatDaAprire = $('.main-chat')
+			console.log(chatDaAprire)
+			chatDaAprire.each(function	() {
+				var chat = $(this).attr('data-conversazione');
+				if (chat === amicoSelezionato) {
+					$(this).addClass('active');
+				} else {
+					$(this).removeClass('active');
+				}
+			});
+
+		});
+	// attr('attribute', 'value');
 });
 
 function sendMessage ()	{

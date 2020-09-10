@@ -247,10 +247,14 @@ textarea, input {
 /* /Chat-top */
 /* Main-chat */
 .main-chat{
+	display: none;
 	width: 100%;
 	height: calc(100% - 140px);
 	background-image: url(../img/mine.jpg);
 	overflow-y: scroll;
+}
+.active {
+	display: block;
 }
 .wrap-main-chat {
 	width: 80%;
