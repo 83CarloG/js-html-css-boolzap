@@ -26,20 +26,22 @@ $(document).ready(function	()	{
 	$('.amici__item').click(
 		function	() {
 			// Seleziono l'attributo data-contatto
-			var amicoSelezionato = $(this).attr('data-contatto');
+			var dataAmicoSelezionato = $(this).attr('data-contatto');
+			var amicoSelezionato = $(this);
+			console.log(amicoSelezionato);
 			var chatDaAprire = $('.main-chat')
-			console.log(chatDaAprire)
+
 			chatDaAprire.each(function	() {
 				var chat = $(this).attr('data-conversazione');
-				if (chat === amicoSelezionato) {
+				if (chat === dataAmicoSelezionato) {
 					$(this).addClass('active');
+					amicoSelezionato.addClass('amici__item--active');
 				} else {
 					$(this).removeClass('active');
+					amicoSelezionato.removeClass('amici__item--active');
 				}
 			});
-
 		});
-	// attr('attribute', 'value');
 });
 
 function sendMessage ()	{

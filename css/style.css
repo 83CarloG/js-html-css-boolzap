@@ -177,6 +177,10 @@ textarea, input {
 	padding: 10px 10px 10px 20px;
 	border-top: 1px solid #fbfbfb;
 }
+.amici__item--active {
+	background-color: #e9ebeb;
+	color: inherit;
+}
 .amici__descrizione {
 	width: 70%;
 	margin-left: 15px;
