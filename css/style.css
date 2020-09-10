@@ -202,10 +202,6 @@ textarea, input {
 	color: #ccced0;
 	font-weight: lighter;
 }
-.active {
-	background-color: #e9ebeb;
-	color: inherit;
-}
 /* /Amici */
 /* /Layout-friends */
 /* Layout-chat */
@@ -251,19 +247,19 @@ textarea, input {
 /* /Chat-top */
 /* Main-chat */
 .main-chat{
-	display: none;
 	width: 100%;
 	height: calc(100% - 140px);
 	background-image: url(../img/mine.jpg);
 	overflow-y: scroll;
 }
-.active {
-	display: block;
-}
 .wrap-main-chat {
+	display: none;
 	width: 80%;
 	margin: 20px auto;
 	padding: 30px;
+}
+.active {
+	display: block;
 }
 .mex-row {
 	display: flex;
@@ -286,7 +282,7 @@ textarea, input {
 	background-color: inherit;
 	color: #bbc4ba;
 }
-.template, .template2 {
+.template {
 	display: none;
 }
 .mex-row--sent {

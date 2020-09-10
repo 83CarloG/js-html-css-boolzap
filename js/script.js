@@ -27,7 +27,7 @@ $(document).ready(function	()	{
 		function	() {
 			// Seleziono l'attributo data-contatto
 			var dataAmicoSelezionato = $(this).attr('data-contatto');
-			var chatDaAprire = $('.main-chat')
+			var chatDaAprire = $('.wrap-main-chat')
 			chatDaAprire.each(function	() {
 				var chat = $(this).attr('data-conversazione');
 				if (chat === dataAmicoSelezionato) {
@@ -36,10 +36,18 @@ $(document).ready(function	()	{
 					$(this).removeClass('active');
 				}
 			});
+			// Cambio la classe active sull'amico con cui sto chattando
 			$('.amici__item').each(function	() {
 					$(this).removeClass('amici__item--active');
 			});
 			$(this).addClass('amici__item--active');
+			// Cambio l'avatar in cima alla chat
+			var avatarAmico = $('.amici__item--active .icona-profilo img').attr('src');
+			var avatarAmicoChatTop = $('.avatar .icona-profilo img').attr('src', avatarAmico);
+			// Cambio il nome in cima alla chat
+			var nomeAmico = $('.amici__item--active .amici__descrizione h4').text();
+			console.log(nomeAmico);
+			var nomeAmicoChatTop = $('.avatar .avatar-text h4').text(nomeAmico);
 		});
 });
 
@@ -50,7 +58,7 @@ function sendMessage ()	{
 		var time = getTime();
 		msgElement.find('.mex__text').text(inputValue);
 		msgElement.find('.mex__orario').text(time);
-		$('.wrap-main-chat').append(msgElement);
+		$('.wrap-main-chat.active').append(msgElement);
 		$('.input-mex').val('');
 		setTimeout(answer, 1000);
 	}
@@ -63,7 +71,7 @@ function answer () {
 	msgElement.children('.mex').removeClass('mex--green');
 	msgElement.find('.mex__text').text('ok');
 	msgElement.find('.mex__orario').text(time);
-	$('.wrap-main-chat').append(msgElement);
+	$('.wrap-main-chat.active').append(msgElement);
 }
 
 function getTime ()	{
