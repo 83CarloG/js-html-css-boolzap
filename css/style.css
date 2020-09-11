@@ -300,6 +300,8 @@ textarea, input {
 	padding: 10px 15px;
 	line-height: 50px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	cursor: pointer;
+	z-index: 2;
 }
 .inside--sent {
 	right: 0;

@@ -38,7 +38,7 @@ $(document).ready(function	()	{
 			});
 			// Cambio la classe active sull'amico con cui sto chattando
 			$('.amici__item').each(function	() {
-					$(this).removeClass('amici__item--active');
+				$(this).removeClass('amici__item--active');
 			});
 			$(this).addClass('amici__item--active');
 			// Cambio l'avatar in cima alla chat
@@ -50,21 +50,18 @@ $(document).ready(function	()	{
 		});
 });
 	// Open dropdown-menu
-	 $(document).on("click", ".mex .mex__options",
-		 function() {
-			 $(this).parent().siblings(".inside").toggle();
-			 console.log(this)
-		 }
-	 );
+$(document).on('click', '.mex__options',
+	function	() {
+		$(this).siblings('.inside').toggle();
+	}
+);
 
-	 // Delete message
-	 $(document).on("click", ".inside .delete",
-		 function() {
-			 $(this).parents(".mex-row").remove();
-			 console.log(this)
-		 }
- );
-
+ // Delete message
+$(document).on('click', '.delete',
+	function	() {
+		$(this).parents('.mex-row').remove();
+	}
+);
 
 function sendMessage ()	{
 	var inputValue = $('.input-mex').val();
