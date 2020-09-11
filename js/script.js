@@ -43,10 +43,13 @@ $(document).ready(function	()	{
 			$(this).addClass('amici__item--active');
 			// Cambio l'avatar in cima alla chat
 			var avatarAmico = $('.amici__item--active .icona-profilo img').attr('src');
-			var avatarAmicoChatTop = $('.avatar .icona-profilo img').attr('src', avatarAmico);
+			$('.avatar .icona-profilo img').attr('src', avatarAmico);
 			// Cambio il nome in cima alla chat
 			var nomeAmico = $('.amici__item--active .amici__descrizione h4').text();
-			var nomeAmicoChatTop = $('.avatar .avatar-text h4').text(nomeAmico);
+			$('.avatar .avatar-text h4').text(nomeAmico);
+			// Aggiorno l'ora all'ultimo accesso
+			var time = $(this).find('.amici_ultimo-accesso').text();
+			$('.avatar .avatar-last-access time').text(time);
 		});
 });
 	// Open dropdown-menu
