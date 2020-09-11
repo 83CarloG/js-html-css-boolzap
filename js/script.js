@@ -48,13 +48,23 @@ $(document).ready(function	()	{
 			var nomeAmico = $('.amici__item--active .amici__descrizione h4').text();
 			var nomeAmicoChatTop = $('.avatar .avatar-text h4').text(nomeAmico);
 		});
-	// Faccio apparire il menu a tendina
-	$('.mex-row .mex .mex__options').on('click', (function () {
-		
-	} )
-);
-
 });
+	// Open dropdown-menu
+	 $(document).on("click", ".mex .mex__options",
+		 function() {
+			 $(this).parent().siblings(".inside").toggle();
+			 console.log(this)
+		 }
+	 );
+
+	 // Delete message
+	 $(document).on("click", ".inside .delete",
+		 function() {
+			 $(this).parents(".mex-row").remove();
+			 console.log(this)
+		 }
+ );
+
 
 function sendMessage ()	{
 	var inputValue = $('.input-mex').val();
