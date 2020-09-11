@@ -38,7 +38,7 @@ $(document).ready(function	()	{
 			// Seleziono l'attributo data-contatto
 			var dataAmicoSelezionato = $(this).attr('data-contatto');
 			// Insieme delle chat in forma di Array
-			var chatDaAprire = $('.wrap-main-chat')
+			var chatDaAprire = $('.wrap-main-chat');
 			// Ciclo le chat
 			chatDaAprire.each(function	() {
 				// seleziono una chat e chiedo di restituirmi il valore di .data-conversazione
@@ -67,6 +67,7 @@ $(document).ready(function	()	{
 			$('.avatar .avatar-last-access time').text(time);
 		});
 });
+
 // Open inside-menu
 $(document).on('click', '.mex__options',
 // funzione che scorre fino alla classe inside e la attiva/disattiva
@@ -82,16 +83,26 @@ $(document).on('click', '.delete',
 		$(this).parents('.mex-row').remove();
 	}
 );
-
+// FUNCTTION
+// Funzione per mandare mex dalla chat
 function sendMessage ()	{
+	// raccolgo quello inserito dall'utente con il metodo val
 	var inputValue = $('.input-mex').val();
+	// se il mex non è in bianco procedo
 	if (inputValue !== '') {
+		// clono il mio template
 		var msgElement = $('.template .mex-row').clone();
+		// uso la funzione getTime per prendere l'ota
 		var time = getTime();
+		// setto il testo
 		msgElement.find('.mex__text').text(inputValue);
+		// setto l'ora
 		msgElement.find('.mex__orario').text(time);
+		// appendo tutto alla chat attiva
 		$('.wrap-main-chat.active').append(msgElement);
+		// pulisco la barra di insermineto del mex
 		$('.input-mex').val('');
+		// aspetto un secondo e mando una risposta con la funzione answer
 		setTimeout(answer, 1000);
 		// faccio scendere la scroll fino all'ultimo mex
 		var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
@@ -100,6 +111,7 @@ function sendMessage ()	{
 	}
 }
 
+// uguale alla funzione sendmessage tranne per la rimozioni di alcune classi
 function answer () {
 	var msgElement = $('.template .mex-row').clone();
 	var time = getTime();
@@ -108,18 +120,22 @@ function answer () {
 	msgElement.find('.mex__text').text('ok');
 	msgElement.find('.mex__orario').text(time);
 	$('.wrap-main-chat.active').append(msgElement);
-	// faccio scendere la scroll fino all'ultimo mex
 	var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
 	$('.main-chat').scrollTop(heightChatActive);
 }
 
+// ritornare ora e minuti in tempo reale
 function getTime ()	{
+	// creo l'oggetto date
 	var date = new Date();
+	// pesco  ora e minuti dall'oggetto date
 	var hours = date.getHours();
 	var minutes = date.getMinutes();
+	// piccolo accorgimento per i minuti < 10
 	if (minutes < 10) {
 		minutes = '0' + minutes;
 	}
+	// unisco tutto e restituisco time per usarlo in altri ambiti
 	var time = hours + ':' + minutes;
 	return time;
 }
