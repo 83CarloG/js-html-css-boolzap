@@ -13,9 +13,7 @@ $(document).ready(function	()	{
 	});
 	// Quando clicco sulla barra dei mex compare l'icona paper-plane
 	$('.input-mex').click(function	() {
-		var sendIcon = $('.send');
-		sendIcon.find('.fa-microphone').addClass('send-icon');
-		sendIcon.find('.fa-paper-plane').removeClass('send-icon');
+		cambioIcona('.send', '.fa-microphone', '.fa-paper-plane', 'send-icon');
 	});
 
 	// Scrivere un mex in chat e inviarlo con un'icona
@@ -36,7 +34,6 @@ $(document).ready(function	()	{
 			}
 		});
 	});
-
 	// Selezionare dai miei contatti la chat corretta e aggiornare l'avatar con cui sto interagendo
 	// Seleziono il div amici__item con un click
 	$('.amici__item').click(
@@ -88,18 +85,12 @@ $(document).on('click', '.delete',
 	function	() {
 		$(this).parents('.mex-row').remove();
 	}
-);function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
-// Clicco fuori dalla barra dei mex compare l'icona paper-plane
+);
 
+// Clicco fuori dalla barra dei mex compare l'icona paper-plane
 document.addEventListener('click', function (event) {
 	if (event.target.className !== 'input-mex') {
-		var sendIcon = $('.send');
-		sendIcon.find('.fa-paper-plane').addClass('send-icon');
-		sendIcon.find('.fa-microphone').removeClass('send-icon');
+		cambioIcona('.send', '.fa-paper-plane', '.fa-microphone', 'send-icon');
 	}
 });
 
@@ -122,9 +113,7 @@ function sendMessage ()	{
 		$('.wrap-main-chat.active').append(msgElement);
 		// pulisco la barra di insermineto del mex e rimetto il microfono come icona
 		$('.input-mex').val('');
-		var sendIcon = $('.send');
-		sendIcon.find('.fa-paper-plane').addClass('send-icon');
-		sendIcon.find('.fa-microphone').removeClass('send-icon');
+		cambioIcona('.send', '.fa-paper-plane', '.fa-microphone', 'send-icon');
 		// aspetto utra 1s e 5s e mando una risposta con la funzione answer
 		setTimeout(answer, getRandomInt(4000, 5001));
 		// faccio scendere la scroll fino all'ultimo mex
@@ -145,7 +134,6 @@ function answer () {
 	var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
 	$('.main-chat').scrollTop(heightChatActive);
 }
-
 // ritornare ora e minuti in tempo reale
 function getTime ()	{
 	// creo l'oggetto date
@@ -163,8 +151,15 @@ function getTime ()	{
 }
 
 // Numero random
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+function getRandomInt	(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min)) + min; //	The maximum is exclusive and the minimum is inclusive
+}
+
+// Funzione cambio icona
+function cambioIcona (divIcona, iconaAgg, iconaRimossa, classeVisual) {
+	var sendIcon = $(divIcona);
+	sendIcon.find(iconaAgg).addClass(classeVisual);
+	sendIcon.find(iconaRimossa).removeClass(classeVisual);
 }
