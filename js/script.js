@@ -4,6 +4,8 @@ $(document).ready(function	()	{
 	// Selezion l'input .input-mex  e all'invio mando i mex usando la funzione sendMessage
 	$('.input-mex').keypress(function	(e) {
 		if (e.which === 13) {
+			var stoScrivendo = $('.avatar .avatar-last-access').text('stoScrivendo');
+			console.log(stoScrivendo);
 			sendMessage();
 		}
 	});
@@ -115,10 +117,16 @@ function sendMessage ()	{
 		$('.input-mex').val('');
 		cambioIcona('.send', '.fa-paper-plane', '.fa-microphone', 'send-icon');
 		// aspetto utra 1s e 5s e mando una risposta con la funzione answer
-		setTimeout(answer, getRandomInt(4000, 5001));
+		setTimeout(function() {
+			answer() // runs first
+			status() // runs second
+		},	getRandomInt(4000, 5001));
 		// faccio scendere la scroll fino all'ultimo mex
 		var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
 		$('.main-chat').scrollTop(heightChatActive);
+		//
+
+
 	}
 }
 
@@ -162,4 +170,9 @@ function cambioIcona (divIcona, iconaAgg, iconaRimossa, classeVisual) {
 	var sendIcon = $(divIcona);
 	sendIcon.find(iconaAgg).addClass(classeVisual);
 	sendIcon.find(iconaRimossa).removeClass(classeVisual);
+}
+
+// function non sto più stoScrivendo
+function status () {
+	$('.avatar .avatar-last-access').text('pippo');
 }
