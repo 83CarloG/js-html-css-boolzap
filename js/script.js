@@ -8,8 +8,14 @@ $(document).ready(function	()	{
 		}
 	});
 	// Seleziono l'input .input-mex  e al click sull'icona mando i mex usando la funzione sendMessage
-	$('.send-icon').click(function	()	{
+	$('.send').click(function	()	{
 		sendMessage();
+	});
+
+	$('.input-mex').click(function	() {
+		var sendIcon = $('.send');
+		sendIcon.find('.fa-microphone').addClass('send-icon');
+		sendIcon.find('.fa-paper-plane').removeClass('send-icon');
 	});
 
 	// Scrivere un mex in chat e inviarlo con un'icona
@@ -100,14 +106,17 @@ function sendMessage ()	{
 		msgElement.find('.mex__orario').text(time);
 		// appendo tutto alla chat attiva
 		$('.wrap-main-chat.active').append(msgElement);
-		// pulisco la barra di insermineto del mex
+		// pulisco la barra di insermineto del mex e rimetto il microfono come icona
 		$('.input-mex').val('');
+		var sendIcon = $('.send');
+		sendIcon.find('.fa-paper-plane').addClass('send-icon');
+		sendIcon.find('.fa-microphone').removeClass('send-icon');
 		// aspetto un secondo e mando una risposta con la funzione answer
 		setTimeout(answer, 1000);
 		// faccio scendere la scroll fino all'ultimo mex
 		var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
-		console.log(heightChatActive);
 		$('.main-chat').scrollTop(heightChatActive);
+
 	}
 }
 
