@@ -9,7 +9,7 @@ $(document).ready(function	()	{
 		}
 	});
 	// Seleziono l'input .input-mex  e al click sull'icona mando i mex usando la funzione sendMessage
-	$('.send').click(function	()	{
+	$('.send .fa-paper-plane').click(function	()	{
 		cambioClasse('.avatar-text', '.avatar-last-access', '.avatar-wait', 'avatar-active');
 		sendMessage();
 	});
