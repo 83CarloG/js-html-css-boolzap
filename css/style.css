@@ -92,18 +92,22 @@ textarea, input {
 	display: flex;
 	justify-content: space-between;
 }
+
 .mio-profilo__icona {
 	font-size: 1.5rem;
 	background-color: inherit;
 	color: #b1b1b1;
 }
+.mio-profilo__icona:hover {
+	cursor: pointer;
+}
+/* /Mio profilo */
+/* Notifiche */
 .notifiche__silenzia {
 	background-color: inherit;
 	color: #8edafc;
 	font-size: 1.25rem;
 }
-/* /Mio profilo */
-/* Notifiche */
 .notifiche {
 	display: flex;
 	width: 100%;
@@ -132,6 +136,9 @@ textarea, input {
 	background-color: inherit;
 	color: #52788a;
 	text-decoration: underline;
+}
+.notifiche__icona:hover {
+	cursor: pointer;
 }
 /* /Notifiche */
 /* Ricerca */
@@ -249,6 +256,9 @@ textarea, input {
   background-color: inherit;
   color: #b1b1b1;
 }
+.icone-chat__list i {
+	cursor: pointer;
+}
 /* /Chat-top */
 /* Main-chat */
 .main-chat{
@@ -294,6 +304,11 @@ textarea, input {
 	font-size: 20px;
 	background-color: inherit;
 	color: #bbc4ba;
+	cursor: pointer;
+}
+.fa-angle-down:hover {
+	background-color: inherit;
+	color: #000;
 }
 /* menu options */
 .inside {

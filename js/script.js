@@ -11,7 +11,7 @@ $(document).ready(function	()	{
 	$('.send').click(function	()	{
 		sendMessage();
 	});
-
+	// Quando clicco sulla barra dei mex compare l'icona paper-plane
 	$('.input-mex').click(function	() {
 		var sendIcon = $('.send');
 		sendIcon.find('.fa-microphone').addClass('send-icon');
@@ -88,7 +88,21 @@ $(document).on('click', '.delete',
 	function	() {
 		$(this).parents('.mex-row').remove();
 	}
-);
+);function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+// Clicco fuori dalla barra dei mex compare l'icona paper-plane
+
+document.addEventListener('click', function (event) {
+	if (event.target.className !== 'input-mex') {
+		var sendIcon = $('.send');
+		sendIcon.find('.fa-paper-plane').addClass('send-icon');
+		sendIcon.find('.fa-microphone').removeClass('send-icon');
+	}
+});
+
 // FUNCTTION
 // Funzione per mandare mex dalla chat
 function sendMessage ()	{
@@ -111,12 +125,11 @@ function sendMessage ()	{
 		var sendIcon = $('.send');
 		sendIcon.find('.fa-paper-plane').addClass('send-icon');
 		sendIcon.find('.fa-microphone').removeClass('send-icon');
-		// aspetto un secondo e mando una risposta con la funzione answer
-		setTimeout(answer, 1000);
+		// aspetto utra 1s e 5s e mando una risposta con la funzione answer
+		setTimeout(answer, getRandomInt(4000, 5001));
 		// faccio scendere la scroll fino all'ultimo mex
 		var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
 		$('.main-chat').scrollTop(heightChatActive);
-
 	}
 }
 
@@ -147,4 +160,11 @@ function getTime ()	{
 	// unisco tutto e restituisco time per usarlo in altri ambiti
 	var time = hours + ':' + minutes;
 	return time;
+}
+
+// Numero random
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
