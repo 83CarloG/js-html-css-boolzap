@@ -241,11 +241,44 @@ textarea, input {
 	font-weight: normal;
 	margin-bottom: 5px;
 }
-.avatar-last-access {
+.avatar-last-access, .avatar-wait {
 	font-size: 0.85rem;
 	background-color: inherit;
 	color: #858b8d;
 }
+.avatar-active {
+	display: none;
+}
+/* animazione dot */
+.avatar-wait:after {
+  content: '.';
+  animation: dots 1s steps(5, end) infinite;}
+
+@keyframes dots {
+  0%, 20% {
+		background-color: inherit;
+    color: #858b8d;
+    text-shadow:
+      .25em 0 0 #858b8d,
+      .5em 0 0 #858b8d;}
+  40% {
+		background-color: inherit;
+    color: white;
+    text-shadow:
+      .25em 0 0 #858b8d,
+      .5em 0 0 #858b8d;}
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 #858b8d;}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;}}
+
+/* /animazione dot */
+
+
 .icone-chat__list {
 	display: flex;
 }
@@ -305,6 +338,12 @@ textarea, input {
 	background-color: inherit;
 	color: #bbc4ba;
 	cursor: pointer;
+}
+.fa-angle-down {
+	display: none;
+}
+.fa-angle-down--display {
+	display: block;
 }
 .fa-angle-down:hover {
 	background-color: inherit;
@@ -375,7 +414,7 @@ textarea, input {
 	color: #8d9293;
 	cursor: pointer;
 }
-.send-icon {
+.hide-icon {
 	display: none;
 }
 /* /Chat-bottom  */

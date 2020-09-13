@@ -34,16 +34,19 @@
 					</div>
 				</div>
 				<!-- /Mio profilo -->
-
+				<!-- Notifiche -->
 				<div class="notifiche">
 					<div class="notifiche__icona">
 						<i class="notifiche__silenzia fas fa-bell-slash"></i>
+						<i class=" hide-icon notifiche__silenzia fas fa-bell"></i>
 					</div>
 					<div class="notifiche__testo">
 						<p class="notifiche__titolo">Ricevi notifiche di nuovi messaggi</p>
 						<p><small class="notifiche__sub-titolo">Attiva notifiche desktop</small></p>
 					</div>
 				</div>
+				<!-- /Notifiche -->
+				<!-- Ricerca -->
 				<div class="ricerca">
 					<div class="ricerca__icona">
 						<i class="ricerca__search fas fa-search"></i>
@@ -52,6 +55,8 @@
 						<input class="ricerca__input" type="text" placeholder="Cerca o inizia una nuova chat">
 					</div>
 				</div>
+				<!-- /Ricerca -->
+				<!-- Amici - lista -->
 				<div class="amici">
 					<div class="amici__item amici__item--active" data-contatto="0">
 						<div class="icona-profilo">
@@ -182,8 +187,8 @@
 						</div>
 					</div>
 				</div>
+				<!-- /Amici - lista -->
 			</div>
-
 			<!-- /Box con gli amici -->
 			<!-- Box della chat -->
 			<div class="layout-chat">
@@ -196,7 +201,7 @@
 						</div>
             <div class="avatar-text">
               <h4 class="avatar-name">Michele</h4>
-							<p class="send-icon">Sta scrivendo...</p>
+							<p class="avatar-wait avatar-active">Sta scrivendo</p>
               <p class="avatar-last-access">Ultimo accesso oggi alle <time>17:30</time></p>
             </div>
           </div>
@@ -284,9 +289,9 @@
 						</div>
 						<div class="mex-row mex-row--sent">
 							<div class="mex mex--green">
-								<p class="mex__text">Ciao Samuele. Come stai?<p>
+								<p class="mex__text">Ciao Samuele. Come stai?</p>
 								<i class="mex__options fas fa-angle-down"></i>
-								<p class="mex__orario">12:53</p>
+								<p class="mex__orario">13:53</p>
 								<ul class="inside inside--sent">
 									<li class="inside__item">Info Messaggio</li>
 									<li class="inside__item delete">Cancella Messaggio</li>
@@ -442,7 +447,7 @@
 						<input class="input-mex" type="text" placeholder="Scrivi un messaggio">
 					</div>
 					<div class="send">
-						<i class="send-icon bottom-icon fas fa-paper-plane"></i>
+						<i class="hide-icon bottom-icon fas fa-paper-plane"></i>
 						<i class="bottom-icon fas fa-microphone"></i>
 					</div>
 				</div>

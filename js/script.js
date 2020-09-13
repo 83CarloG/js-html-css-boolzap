@@ -4,18 +4,18 @@ $(document).ready(function	()	{
 	// Selezion l'input .input-mex  e all'invio mando i mex usando la funzione sendMessage
 	$('.input-mex').keypress(function	(e) {
 		if (e.which === 13) {
-			var stoScrivendo = $('.avatar .avatar-last-access').text('stoScrivendo');
-			console.log(stoScrivendo);
+			cambioClasse('.avatar-text', '.avatar-last-access', '.avatar-wait', 'avatar-active');
 			sendMessage();
 		}
 	});
 	// Seleziono l'input .input-mex  e al click sull'icona mando i mex usando la funzione sendMessage
 	$('.send').click(function	()	{
+		cambioClasse('.avatar-text', '.avatar-last-access', '.avatar-wait', 'avatar-active');
 		sendMessage();
 	});
 	// Quando clicco sulla barra dei mex compare l'icona paper-plane
 	$('.input-mex').click(function	() {
-		cambioIcona('.send', '.fa-microphone', '.fa-paper-plane', 'send-icon');
+		cambioClasse('.send', '.fa-microphone', '.fa-paper-plane', 'hide-icon');
 	});
 
 	// Scrivere un mex in chat e inviarlo con un'icona
@@ -55,6 +55,7 @@ $(document).ready(function	()	{
 				} else {
 					$(this).removeClass('active');
 				}
+				displayLastMex();
 			});
 			// Cambio la classe active sull'amico con cui sto chattando
 			$('.amici__item').each(function	() {
@@ -71,16 +72,33 @@ $(document).ready(function	()	{
 			var time = $(this).find('.amici_ultimo-accesso').text();
 			$('.avatar .avatar-last-access time').text(time);
 		});
+		// Attiva disattiva notifiche - profilo__icona
+		$('.notifiche__icona').click(function	() {
+			$('.fa-bell').toggle();
+			$('.fa-bell-slash').toggle();
+		});
 });
+// Appare e scompare al passaggio del mouse sul mex l'icona del menu a tendina
+//	per l'eliminazione del mex
+$(document).on('mouseenter', '.mex',
+	function () {
+		$(this).find('.fa-angle-down').addClass('fa-angle-down--display');
+	}
+);
+$(document).on('mouseleave', '.mex',
+	function () {
+		$(this).find('.fa-angle-down').removeClass('fa-angle-down--display');
+	}
+);
 
 // Open inside-menu
 $(document).on('click', '.mex__options',
 // funzione che scorre fino alla classe inside e la attiva/disattiva
 	function	() {
 		$(this).siblings('.inside').toggle();
+		displayLastMex();
 	}
 );
-
 // Delete message
 $(document).on('click', '.delete',
 // funzione che scorre fino al parent .mex-row e lo rimuove (eliminazione mex)
@@ -88,15 +106,14 @@ $(document).on('click', '.delete',
 		$(this).parents('.mex-row').remove();
 	}
 );
-
 // Clicco fuori dalla barra dei mex compare l'icona paper-plane
 document.addEventListener('click', function (event) {
 	if (event.target.className !== 'input-mex') {
-		cambioIcona('.send', '.fa-paper-plane', '.fa-microphone', 'send-icon');
+		cambioClasse('.send', '.fa-paper-plane', '.fa-microphone', 'hide-icon');
 	}
 });
 
-// FUNCTTION
+// FUNCTION
 // Funzione per mandare mex dalla chat
 function sendMessage ()	{
 	// raccolgo quello inserito dall'utente con il metodo val
@@ -115,22 +132,18 @@ function sendMessage ()	{
 		$('.wrap-main-chat.active').append(msgElement);
 		// pulisco la barra di insermineto del mex e rimetto il microfono come icona
 		$('.input-mex').val('');
-		cambioIcona('.send', '.fa-paper-plane', '.fa-microphone', 'send-icon');
+		cambioClasse('.send', '.fa-paper-plane', '.fa-microphone', 'hide-icon');
 		// aspetto utra 1s e 5s e mando una risposta con la funzione answer
-		setTimeout(function() {
-			answer() // runs first
-			status() // runs second
+		setTimeout(function	() {
+			answer(); // runs first
+			cambioClasse('.avatar-text', '.avatar-wait', '.avatar-last-access', 'avatar-active');
 		},	getRandomInt(4000, 5001));
 		// faccio scendere la scroll fino all'ultimo mex
-		var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
-		$('.main-chat').scrollTop(heightChatActive);
-		//
-
-
+		displayLastMex();
 	}
 }
 
-// uguale alla funzione sendmessage tranne per la rimozioni di alcune classi
+// Funzione answer, mex di risposta.
 function answer () {
 	var msgElement = $('.template .mex-row').clone();
 	var time = getTime();
@@ -142,7 +155,8 @@ function answer () {
 	var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
 	$('.main-chat').scrollTop(heightChatActive);
 }
-// ritornare ora e minuti in tempo reale
+
+// Funzione per ritornare ora e minuti in tempo reale
 function getTime ()	{
 	// creo l'oggetto date
 	var date = new Date();
@@ -165,14 +179,15 @@ function getRandomInt	(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min; //	The maximum is exclusive and the minimum is inclusive
 }
 
-// Funzione cambio icona
-function cambioIcona (divIcona, iconaAgg, iconaRimossa, classeVisual) {
-	var sendIcon = $(divIcona);
-	sendIcon.find(iconaAgg).addClass(classeVisual);
-	sendIcon.find(iconaRimossa).removeClass(classeVisual);
+// Funzione cambio classe
+function cambioClasse (divParent, aggiungi, togli, classeVisual) {
+	var sendIcon = $(divParent);
+	sendIcon.find(aggiungi).addClass(classeVisual);
+	sendIcon.find(togli).removeClass(classeVisual);
 }
 
-// function non sto più stoScrivendo
-function status () {
-	$('.avatar .avatar-last-access').text('pippo');
+// Funzione per avere sempre il display sull'ultimo mex
+function displayLastMex	() {
+	var heightChatActive = $('.wrap-main-chat.active').prop('scrollHeight');
+	$('.main-chat').scrollTop(heightChatActive + 100);
 }
